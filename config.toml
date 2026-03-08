@@ -1,0 +1,92 @@
+# Codex CLI configuration
+# Link/sync this file to ~/.codex/config.toml via dotfiles.
+
+[mcp_servers.context-mode]
+command = "context-mode"
+args = []
+enabled = true
+
+[mcp_servers.linear]
+command = "bunx"
+args = ["mcp-remote", "https://mcp.linear.app/sse"]
+enabled = false
+
+[mcp_servers.notion]
+command = "bunx"
+args = ["mcp-remote", "https://mcp.notion.com/sse"]
+enabled = false
+
+[mcp_servers.aws-api-staging]
+command = "uvx"
+args = ["awslabs.aws-api-mcp-server@latest"]
+enabled = false
+
+[mcp_servers.aws-api-staging.env]
+READ_OPERATIONS_ONLY = "true"
+AWS_REGION = "us-east-2"
+AWS_API_MCP_PROFILE_NAME = "staging"
+
+[mcp_servers.aws-api-prod]
+command = "uvx"
+args = ["awslabs.aws-api-mcp-server@latest"]
+enabled = false
+
+[mcp_servers.aws-api-prod.env]
+READ_OPERATIONS_ONLY = "true"
+AWS_REGION = "us-east-2"
+AWS_API_MCP_PROFILE_NAME = "prod"
+
+[mcp_servers.aws-doc]
+command = "uvx"
+args = ["awslabs.aws-documentation-mcp-server@latest"]
+enabled = false
+
+[mcp_servers.aws-doc.env]
+FASTMCP_LOG_LEVEL = "ERROR"
+AWS_DOCUMENTATION_PARTITION = "aws"
+
+[mcp_servers.github]
+url = "https://api.githubcopilot.com/mcp/"
+bearer_token_env_var = "GITHUB_TOKEN"
+enabled = true
+
+[mcp_servers.grafana]
+command = "podman"
+args = [
+  "run",
+  "--rm",
+  "-i",
+  "-e",
+  "GRAFANA_URL=https://hatchengineering.grafana.net",
+  "-e",
+  "GRAFANA_SERVICE_ACCOUNT_TOKEN",
+  "docker.io/mcp/grafana:latest",
+  "-t",
+  "stdio",
+]
+enabled = false
+
+[mcp_servers.agent-hub]
+command = "npx"
+args = ["-y", "agent-hub-mcp@latest"]
+enabled = true
+
+[mcp_servers.tmux]
+command = "npx"
+args = ["-y", "tmux-mcp"]
+enabled = true
+
+[mcp_servers.terraform]
+command = "podman"
+args = ["run", "--rm", "-i", "docker.io/hashicorp/terraform-mcp-server:latest"]
+enabled = false
+
+[mcp_servers.opentofu]
+command = "npx"
+args = ["-y", "@opentofu/opentofu-mcp-server"]
+enabled = false
+
+[mcp_servers.kubernetes]
+command = "npx"
+args = ["-y", "mcp-server-kubernetes"]
+enabled = false
