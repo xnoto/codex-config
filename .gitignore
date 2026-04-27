@@ -1,0 +1,19 @@
+# Codex runtime state. Keep this repo focused on portable configuration.
+auth.json
+history.jsonl
+installation_id
+logs_*.sqlite*
+models_cache.json
+state_*.sqlite*
+version.json
+
+.personality_migration
+.tmp/
+cache/
+log/
+memories/
+rules/
+sessions/
+shell_snapshots/
+skills/
+tmp/

@@ -1,5 +1,5 @@
 # Codex CLI configuration
-# Link/sync this file to ~/.codex/config.toml via dotfiles.
+# Dotfiles deploy this repo to ~/.codex, the canonical Codex config/state directory.
 
 [mcp_servers.context-mode]
 command = "context-mode"
@@ -9,17 +9,21 @@ enabled = true
 [mcp_servers.linear]
 command = "bunx"
 args = ["mcp-remote", "https://mcp.linear.app/sse"]
-enabled = false
+enabled = true
+startup_timeout_sec = 30
 
 [mcp_servers.notion]
 command = "bunx"
 args = ["mcp-remote", "https://mcp.notion.com/sse"]
-enabled = false
+enabled = true
+startup_timeout_sec = 30
 
 [mcp_servers.aws-api-staging]
 command = "uvx"
 args = ["awslabs.aws-api-mcp-server@latest"]
-enabled = false
+enabled = true
+startup_timeout_sec = 30
+tool_timeout_sec = 120
 
 [mcp_servers.aws-api-staging.env]
 READ_OPERATIONS_ONLY = "true"
@@ -29,19 +33,22 @@ AWS_API_MCP_PROFILE_NAME = "staging"
 [mcp_servers.aws-api-prod]
 command = "uvx"
 args = ["awslabs.aws-api-mcp-server@latest"]
-enabled = false
+enabled = true
+startup_timeout_sec = 30
+tool_timeout_sec = 120
 
 [mcp_servers.aws-api-prod.env]
 READ_OPERATIONS_ONLY = "true"
 AWS_REGION = "us-east-2"
 AWS_API_MCP_PROFILE_NAME = "prod"
 
-[mcp_servers.aws-doc]
+[mcp_servers.aws-docs]
 command = "uvx"
 args = ["awslabs.aws-documentation-mcp-server@latest"]
-enabled = false
+enabled = true
+startup_timeout_sec = 30
 
-[mcp_servers.aws-doc.env]
+[mcp_servers.aws-docs.env]
 FASTMCP_LOG_LEVEL = "ERROR"
 AWS_DOCUMENTATION_PARTITION = "aws"
 
@@ -51,20 +58,14 @@ bearer_token_env_var = "GITHUB_TOKEN"
 enabled = true
 
 [mcp_servers.grafana]
-command = "podman"
+command = "sh"
 args = [
-  "run",
-  "--rm",
-  "-i",
-  "-e",
-  "GRAFANA_URL=https://hatchengineering.grafana.net",
-  "-e",
-  "GRAFANA_SERVICE_ACCOUNT_TOKEN",
-  "docker.io/mcp/grafana:latest",
-  "-t",
-  "stdio",
+  "-lc",
+  "GRAFANA_SERVICE_ACCOUNT_TOKEN=${GRAFANA_TOKEN:?GRAFANA_TOKEN is not set} exec podman run --rm -i -e GRAFANA_URL=https://hatchengineering.grafana.net -e GRAFANA_SERVICE_ACCOUNT_TOKEN docker.io/mcp/grafana:latest -t stdio",
 ]
-enabled = false
+enabled = true
+startup_timeout_sec = 30
+tool_timeout_sec = 120
 
 [mcp_servers.agent-hub]
 command = "npx"
@@ -76,17 +77,53 @@ command = "npx"
 args = ["-y", "tmux-mcp"]
 enabled = true
 
-[mcp_servers.terraform]
+[mcp_servers.terraform-docs]
 command = "podman"
 args = ["run", "--rm", "-i", "docker.io/hashicorp/terraform-mcp-server:latest"]
-enabled = false
+enabled = true
+startup_timeout_sec = 30
 
-[mcp_servers.opentofu]
+[mcp_servers.opentofu-docs]
 command = "npx"
 args = ["-y", "@opentofu/opentofu-mcp-server"]
-enabled = false
+enabled = true
+startup_timeout_sec = 30
 
 [mcp_servers.kubernetes]
 command = "npx"
 args = ["-y", "mcp-server-kubernetes"]
-enabled = false
+enabled = true
+startup_timeout_sec = 30
+
+[mcp_servers.kubernetes.env]
+K8S_CONTEXT = "staging-eks.angler-elver.ts.net"
+
+[mcp_servers.opencode-docs]
+command = "npx"
+args = ["-y", "opencode-docs-mcp@latest"]
+enabled = true
+startup_timeout_sec = 30
+
+[mcp_servers.context7]
+url = "https://mcp.context7.com/mcp"
+enabled = true
+
+[mcp_servers.argocd-staging-eks]
+command = "sh"
+args = [
+  "-lc",
+  "ARGOCD_BASE_URL=https://argocd-staging.angler-elver.ts.net ARGOCD_API_TOKEN=${ARGOCD_STAGING_TOKEN:?ARGOCD_STAGING_TOKEN is not set} exec npx -y argocd-mcp@latest stdio",
+]
+enabled = true
+startup_timeout_sec = 30
+tool_timeout_sec = 120
+
+[mcp_servers.argocd-prod-eks]
+command = "sh"
+args = [
+  "-lc",
+  "ARGOCD_BASE_URL=https://argocd-prod.angler-elver.ts.net ARGOCD_API_TOKEN=${ARGOCD_PROD_TOKEN:?ARGOCD_PROD_TOKEN is not set} exec npx -y argocd-mcp@latest stdio",
+]
+enabled = true
+startup_timeout_sec = 30
+tool_timeout_sec = 120
