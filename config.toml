@@ -8,7 +8,7 @@ enabled = true
 
 [mcp_servers.linear]
 command = "bunx"
-args = ["mcp-remote", "https://mcp.linear.app/sse"]
+args = ["mcp-remote", "https://mcp.linear.app/mcp"]
 enabled = true
 startup_timeout_sec = 30
 
@@ -99,8 +99,8 @@ startup_timeout_sec = 30
 K8S_CONTEXT = "staging-eks.angler-elver.ts.net"
 
 [mcp_servers.opencode-docs]
-command = "npx"
-args = ["-y", "opencode-docs-mcp@latest"]
+command = "opencode-docs-mcp"
+args = []
 enabled = true
 startup_timeout_sec = 30
 
