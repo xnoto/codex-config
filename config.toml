@@ -7,16 +7,12 @@ args = []
 enabled = true
 
 [mcp_servers.linear]
-command = "bunx"
-args = ["mcp-remote", "https://mcp.linear.app/mcp"]
+url = "https://mcp.linear.app/mcp"
 enabled = true
-startup_timeout_sec = 30
 
 [mcp_servers.notion]
-command = "bunx"
-args = ["mcp-remote", "https://mcp.notion.com/sse"]
+url = "https://mcp.notion.com/mcp"
 enabled = true
-startup_timeout_sec = 30
 
 [mcp_servers.aws-api-staging]
 command = "uvx"
