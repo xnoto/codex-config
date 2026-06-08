@@ -13,7 +13,7 @@ enabled = true
 
 [mcp_servers.notion]
 command = "bunx"
-args = ["--bun", "mcp-remote", "https://mcp.notion.com/sse"]
+args = ["--bun", "mcp-remote", "https://mcp.notion.com/mcp", "--transport", "http-only"]
 enabled = true
 
 [mcp_servers.aws-api-staging]
