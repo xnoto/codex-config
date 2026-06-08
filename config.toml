@@ -7,11 +7,13 @@ args = []
 enabled = true
 
 [mcp_servers.linear]
-url = "https://mcp.linear.app/mcp"
+command = "bunx"
+args = ["--bun", "mcp-remote", "https://mcp.linear.app/mcp"]
 enabled = true
 
 [mcp_servers.notion]
-url = "https://mcp.notion.com/mcp"
+command = "bunx"
+args = ["--bun", "mcp-remote", "https://mcp.notion.com/sse"]
 enabled = true
 
 [mcp_servers.aws-api-staging]
@@ -60,6 +62,7 @@ args = [
   "GRAFANA_SERVICE_ACCOUNT_TOKEN=${GRAFANA_TOKEN:?GRAFANA_TOKEN is not set} exec podman run --rm -i -e GRAFANA_URL=https://hatchengineering.grafana.net -e GRAFANA_SERVICE_ACCOUNT_TOKEN docker.io/mcp/grafana:latest -t stdio",
 ]
 enabled = true
+env_vars = ["GRAFANA_TOKEN"]
 startup_timeout_sec = 30
 tool_timeout_sec = 120
 
@@ -111,6 +114,7 @@ args = [
   "ARGOCD_BASE_URL=https://argocd-staging.angler-elver.ts.net ARGOCD_API_TOKEN=${ARGOCD_STAGING_TOKEN:?ARGOCD_STAGING_TOKEN is not set} exec npx -y argocd-mcp@latest stdio",
 ]
 enabled = true
+env_vars = ["ARGOCD_STAGING_TOKEN"]
 startup_timeout_sec = 30
 tool_timeout_sec = 120
 
@@ -121,5 +125,6 @@ args = [
   "ARGOCD_BASE_URL=https://argocd-prod.angler-elver.ts.net ARGOCD_API_TOKEN=${ARGOCD_PROD_TOKEN:?ARGOCD_PROD_TOKEN is not set} exec npx -y argocd-mcp@latest stdio",
 ]
 enabled = true
+env_vars = ["ARGOCD_PROD_TOKEN"]
 startup_timeout_sec = 30
 tool_timeout_sec = 120
