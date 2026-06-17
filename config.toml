@@ -108,10 +108,10 @@ url = "https://mcp.context7.com/mcp"
 enabled = true
 
 [mcp_servers.argocd-staging-eks]
-command = "sh"
+command = "zsh"
 args = [
-  "-lc",
-  "ARGOCD_BASE_URL=https://argocd-staging.angler-elver.ts.net ARGOCD_API_TOKEN=${ARGOCD_STAGING_TOKEN:?ARGOCD_STAGING_TOKEN is not set} exec npx -y argocd-mcp@latest stdio",
+  "-c",
+  "source ~/.zprofile >/dev/null 2>&1; ARGOCD_BASE_URL=https://argocd-staging.angler-elver.ts.net ARGOCD_API_TOKEN=${ARGOCD_STAGING_TOKEN:?ARGOCD_STAGING_TOKEN is not set} exec npx -y argocd-mcp@latest stdio",
 ]
 enabled = true
 env_vars = ["ARGOCD_STAGING_TOKEN"]
@@ -119,10 +119,10 @@ startup_timeout_sec = 30
 tool_timeout_sec = 120
 
 [mcp_servers.argocd-prod-eks]
-command = "sh"
+command = "zsh"
 args = [
-  "-lc",
-  "ARGOCD_BASE_URL=https://argocd-prod.angler-elver.ts.net ARGOCD_API_TOKEN=${ARGOCD_PROD_TOKEN:?ARGOCD_PROD_TOKEN is not set} exec npx -y argocd-mcp@latest stdio",
+  "-c",
+  "source ~/.zprofile >/dev/null 2>&1; ARGOCD_BASE_URL=https://argocd-prod.angler-elver.ts.net ARGOCD_API_TOKEN=${ARGOCD_PROD_TOKEN:?ARGOCD_PROD_TOKEN is not set} exec npx -y argocd-mcp@latest stdio",
 ]
 enabled = true
 env_vars = ["ARGOCD_PROD_TOKEN"]
