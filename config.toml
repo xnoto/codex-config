@@ -16,29 +16,35 @@ command = "bunx"
 args = ["--bun", "mcp-remote", "https://mcp.notion.com/mcp", "--transport", "http-only"]
 enabled = true
 
-[mcp_servers.aws-api-staging]
+[mcp_servers.aws-staging]
 command = "uvx"
-args = ["awslabs.aws-api-mcp-server@latest"]
+args = [
+  "mcp-proxy-for-aws@1.6.4",
+  "https://aws-mcp.us-east-1.api.aws/mcp",
+  "--profile",
+  "staging",
+  "--read-only",
+  "--metadata",
+  "AWS_REGION=us-east-2",
+]
 enabled = true
-startup_timeout_sec = 30
+startup_timeout_sec = 100
 tool_timeout_sec = 120
 
-[mcp_servers.aws-api-staging.env]
-READ_OPERATIONS_ONLY = "true"
-AWS_REGION = "us-east-2"
-AWS_API_MCP_PROFILE_NAME = "staging"
-
-[mcp_servers.aws-api-prod]
+[mcp_servers.aws-prod]
 command = "uvx"
-args = ["awslabs.aws-api-mcp-server@latest"]
+args = [
+  "mcp-proxy-for-aws@1.6.4",
+  "https://aws-mcp.us-east-1.api.aws/mcp",
+  "--profile",
+  "prod",
+  "--read-only",
+  "--metadata",
+  "AWS_REGION=us-east-2",
+]
 enabled = true
-startup_timeout_sec = 30
+startup_timeout_sec = 100
 tool_timeout_sec = 120
-
-[mcp_servers.aws-api-prod.env]
-READ_OPERATIONS_ONLY = "true"
-AWS_REGION = "us-east-2"
-AWS_API_MCP_PROFILE_NAME = "prod"
 
 [mcp_servers.aws-docs]
 command = "uvx"
