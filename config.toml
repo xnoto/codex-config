@@ -65,12 +65,15 @@ enabled = true
 command = "sh"
 args = [
   "-lc",
-  "GRAFANA_SERVICE_ACCOUNT_TOKEN=${GRAFANA_TOKEN:?GRAFANA_TOKEN is not set} exec podman run --rm -i -e GRAFANA_URL=https://hatchengineering.grafana.net -e GRAFANA_SERVICE_ACCOUNT_TOKEN docker.io/mcp/grafana:latest -t stdio",
+  "GRAFANA_SERVICE_ACCOUNT_TOKEN=${GRAFANA_TOKEN:?GRAFANA_TOKEN is not set} exec uvx mcp-grafana@1.0.0",
 ]
 enabled = true
 env_vars = ["GRAFANA_TOKEN"]
 startup_timeout_sec = 30
 tool_timeout_sec = 120
+
+[mcp_servers.grafana.env]
+GRAFANA_URL = "https://hatchengineering.grafana.net"
 
 [mcp_servers.agent-hub]
 command = "npx"
@@ -84,13 +87,12 @@ enabled = true
 
 [mcp_servers.terraform-docs]
 command = "podman"
-args = ["run", "--rm", "-i", "docker.io/hashicorp/terraform-mcp-server:latest"]
+args = ["run", "--rm", "-i", "docker.io/hashicorp/terraform-mcp-server:1.1.0"]
 enabled = true
 startup_timeout_sec = 30
 
 [mcp_servers.opentofu-docs]
-command = "npx"
-args = ["-y", "@opentofu/opentofu-mcp-server"]
+url = "https://mcp.opentofu.org/mcp"
 enabled = true
 startup_timeout_sec = 30
 
