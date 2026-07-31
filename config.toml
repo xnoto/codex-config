@@ -17,44 +17,21 @@ args = ["--bun", "mcp-remote", "https://mcp.notion.com/mcp", "--transport", "htt
 enabled = true
 
 [mcp_servers.aws-staging]
-command = "uvx"
-args = [
-  "mcp-proxy-for-aws@1.6.4",
-  "https://aws-mcp.us-east-1.api.aws/mcp",
-  "--profile",
-  "staging",
-  "--read-only",
-  "--metadata",
-  "AWS_REGION=us-east-2",
-]
+url = "http://127.0.0.1:8765/mcp"
 enabled = true
 startup_timeout_sec = 100
 tool_timeout_sec = 120
 
 [mcp_servers.aws-prod]
-command = "uvx"
-args = [
-  "mcp-proxy-for-aws@1.6.4",
-  "https://aws-mcp.us-east-1.api.aws/mcp",
-  "--profile",
-  "prod",
-  "--read-only",
-  "--metadata",
-  "AWS_REGION=us-east-2",
-]
+url = "http://127.0.0.1:8766/mcp"
 enabled = true
 startup_timeout_sec = 100
 tool_timeout_sec = 120
 
 [mcp_servers.aws-docs]
-command = "uvx"
-args = ["awslabs.aws-documentation-mcp-server@latest"]
+url = "http://127.0.0.1:8767/mcp"
 enabled = true
 startup_timeout_sec = 30
-
-[mcp_servers.aws-docs.env]
-FASTMCP_LOG_LEVEL = "ERROR"
-AWS_DOCUMENTATION_PARTITION = "aws"
 
 [mcp_servers.github]
 url = "https://api.githubcopilot.com/mcp/"
@@ -62,32 +39,21 @@ bearer_token_env_var = "GITHUB_TOKEN"
 enabled = true
 
 [mcp_servers.grafana]
-command = "sh"
-args = [
-  "-lc",
-  "GRAFANA_SERVICE_ACCOUNT_TOKEN=${GRAFANA_TOKEN:?GRAFANA_TOKEN is not set} exec uvx mcp-grafana@1.0.0",
-]
+url = "http://127.0.0.1:8768/mcp"
 enabled = true
-env_vars = ["GRAFANA_TOKEN"]
 startup_timeout_sec = 30
 tool_timeout_sec = 120
 
-[mcp_servers.grafana.env]
-GRAFANA_URL = "https://hatchengineering.grafana.net"
-
 [mcp_servers.agent-hub]
-command = "npx"
-args = ["-y", "agent-hub-mcp@latest"]
+url = "http://127.0.0.1:8776/mcp"
 enabled = true
 
 [mcp_servers.tmux]
-command = "npx"
-args = ["-y", "tmux-mcp"]
+url = "http://127.0.0.1:8770/mcp"
 enabled = true
 
 [mcp_servers.terraform-docs]
-command = "podman"
-args = ["run", "--rm", "-i", "docker.io/hashicorp/terraform-mcp-server:1.1.0"]
+url = "http://127.0.0.1:8771/mcp"
 enabled = true
 startup_timeout_sec = 30
 
@@ -97,17 +63,12 @@ enabled = true
 startup_timeout_sec = 30
 
 [mcp_servers.kubernetes]
-command = "npx"
-args = ["-y", "mcp-server-kubernetes"]
+url = "http://127.0.0.1:8772/mcp"
 enabled = true
 startup_timeout_sec = 30
 
-[mcp_servers.kubernetes.env]
-K8S_CONTEXT = "staging-eks.angler-elver.ts.net"
-
 [mcp_servers.opencode-docs]
-command = "opencode-docs-mcp"
-args = []
+url = "http://127.0.0.1:8773/mcp"
 enabled = true
 startup_timeout_sec = 30
 
@@ -116,23 +77,13 @@ url = "https://mcp.context7.com/mcp"
 enabled = true
 
 [mcp_servers.argocd-staging-eks]
-command = "/bin/sh"
-args = [
-  "-c",
-  "if [ -r \"$HOME/.shellenv\" ]; then . \"$HOME/.shellenv\" >/dev/null 2>&1; fi; ARGOCD_BASE_URL=https://argocd-staging.angler-elver.ts.net ARGOCD_API_TOKEN=${ARGOCD_STAGING_TOKEN:?ARGOCD_STAGING_TOKEN is not set} exec npx -y argocd-mcp@latest stdio",
-]
+url = "http://127.0.0.1:8774/mcp"
 enabled = true
-env_vars = ["ARGOCD_STAGING_TOKEN"]
 startup_timeout_sec = 30
 tool_timeout_sec = 120
 
 [mcp_servers.argocd-prod-eks]
-command = "/bin/sh"
-args = [
-  "-c",
-  "if [ -r \"$HOME/.shellenv\" ]; then . \"$HOME/.shellenv\" >/dev/null 2>&1; fi; ARGOCD_BASE_URL=https://argocd-prod.angler-elver.ts.net ARGOCD_API_TOKEN=${ARGOCD_PROD_TOKEN:?ARGOCD_PROD_TOKEN is not set} exec npx -y argocd-mcp@latest stdio",
-]
+url = "http://127.0.0.1:8775/mcp"
 enabled = true
-env_vars = ["ARGOCD_PROD_TOKEN"]
 startup_timeout_sec = 30
 tool_timeout_sec = 120

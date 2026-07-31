@@ -12,6 +12,7 @@ version.json
 cache/
 log/
 memories/
+mcp-oauth-locks/
 rules/
 sessions/
 shell_snapshots/
