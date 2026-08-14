@@ -34,8 +34,7 @@ enabled = true
 startup_timeout_sec = 30
 
 [mcp_servers.github]
-url = "https://api.githubcopilot.com/mcp/"
-bearer_token_env_var = "GITHUB_TOKEN"
+url = "http://127.0.0.1:8778/mcp"
 enabled = true
 
 [mcp_servers.grafana]
@@ -73,7 +72,7 @@ enabled = true
 startup_timeout_sec = 30
 
 [mcp_servers.context7]
-url = "https://mcp.context7.com/mcp"
+url = "http://127.0.0.1:8781/mcp"
 enabled = true
 
 [mcp_servers.argocd-staging-eks]
