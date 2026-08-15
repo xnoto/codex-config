@@ -6,6 +6,11 @@ command = "context-mode"
 args = []
 enabled = true
 
+[mcp_servers.parallel-search]
+url = "http://127.0.0.1:8782/mcp"
+enabled = true
+startup_timeout_sec = 30
+
 [mcp_servers.linear]
 command = "bunx"
 args = ["--bun", "mcp-remote", "https://mcp.linear.app/mcp"]
