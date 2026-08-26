@@ -7,9 +7,10 @@ args = []
 enabled = true
 
 [mcp_servers.parallel-search]
-url = "http://127.0.0.1:8782/mcp"
+url = "https://mcp-parallel-search.makeitwork.cloud/mcp"
 enabled = true
 startup_timeout_sec = 30
+env_http_headers = { "CF-Access-Client-Id" = "CF_ACCESS_CLIENT_ID", "CF-Access-Client-Secret" = "CF_ACCESS_CLIENT_SECRET" }
 
 [mcp_servers.linear]
 command = "bunx"
@@ -34,12 +35,7 @@ startup_timeout_sec = 100
 tool_timeout_sec = 120
 
 [mcp_servers.aws-docs]
-url = "http://127.0.0.1:8767/mcp"
-enabled = true
-startup_timeout_sec = 30
-
-[mcp_servers.mcp-gateway]
-url = "https://mcp.makeitwork.cloud/mcp"
+url = "https://mcp-aws-docs.makeitwork.cloud/mcp"
 enabled = true
 startup_timeout_sec = 30
 env_http_headers = { "CF-Access-Client-Id" = "CF_ACCESS_CLIENT_ID", "CF-Access-Client-Secret" = "CF_ACCESS_CLIENT_SECRET" }
@@ -59,9 +55,10 @@ url = "http://127.0.0.1:8770/mcp"
 enabled = true
 
 [mcp_servers.terraform-docs]
-url = "http://127.0.0.1:8771/mcp"
+url = "https://mcp-terraform-docs.makeitwork.cloud/mcp"
 enabled = true
 startup_timeout_sec = 30
+env_http_headers = { "CF-Access-Client-Id" = "CF_ACCESS_CLIENT_ID", "CF-Access-Client-Secret" = "CF_ACCESS_CLIENT_SECRET" }
 
 [mcp_servers.opentofu-docs]
 url = "https://mcp.opentofu.org/mcp"
@@ -86,15 +83,41 @@ startup_timeout_sec = 30
 tool_timeout_sec = 120
 
 [mcp_servers.argocd-makeitwork]
-url = "http://127.0.0.1:8777/mcp"
+url = "https://mcp-argocd-makeitwork.makeitwork.cloud/mcp"
 enabled = true
 startup_timeout_sec = 30
 tool_timeout_sec = 120
+env_http_headers = { "CF-Access-Client-Id" = "CF_ACCESS_CLIENT_ID", "CF-Access-Client-Secret" = "CF_ACCESS_CLIENT_SECRET" }
 
 [mcp_servers.apify]
-url = "http://127.0.0.1:8783/mcp"
+url = "https://mcp-apify.makeitwork.cloud/mcp"
 enabled = true
 startup_timeout_sec = 30
+env_http_headers = { "CF-Access-Client-Id" = "CF_ACCESS_CLIENT_ID", "CF-Access-Client-Secret" = "CF_ACCESS_CLIENT_SECRET" }
+
+[mcp_servers.context7]
+url = "https://mcp-context7.makeitwork.cloud/mcp"
+enabled = true
+startup_timeout_sec = 30
+env_http_headers = { "CF-Access-Client-Id" = "CF_ACCESS_CLIENT_ID", "CF-Access-Client-Secret" = "CF_ACCESS_CLIENT_SECRET" }
+
+[mcp_servers.github]
+url = "https://mcp-github.makeitwork.cloud/mcp"
+enabled = true
+startup_timeout_sec = 30
+env_http_headers = { "CF-Access-Client-Id" = "CF_ACCESS_CLIENT_ID", "CF-Access-Client-Secret" = "CF_ACCESS_CLIENT_SECRET" }
+
+[mcp_servers.kubernetes]
+url = "https://mcp-kubernetes.makeitwork.cloud/mcp"
+enabled = true
+startup_timeout_sec = 30
+env_http_headers = { "CF-Access-Client-Id" = "CF_ACCESS_CLIENT_ID", "CF-Access-Client-Secret" = "CF_ACCESS_CLIENT_SECRET" }
+
+[mcp_servers.grafana-makeitwork]
+url = "https://mcp-grafana-makeitwork.makeitwork.cloud/mcp"
+enabled = true
+startup_timeout_sec = 30
+env_http_headers = { "CF-Access-Client-Id" = "CF_ACCESS_CLIENT_ID", "CF-Access-Client-Secret" = "CF_ACCESS_CLIENT_SECRET" }
 
 [mcp_servers.linkedin]
 command = "uvx"
