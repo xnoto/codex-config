@@ -38,9 +38,11 @@ url = "http://127.0.0.1:8767/mcp"
 enabled = true
 startup_timeout_sec = 30
 
-[mcp_servers.github]
-url = "http://127.0.0.1:8778/mcp"
+[mcp_servers.mcp-gateway]
+url = "https://mcp.makeitwork.cloud/mcp"
 enabled = true
+startup_timeout_sec = 30
+env_http_headers = { "CF-Access-Client-Id" = "CF_ACCESS_CLIENT_ID", "CF-Access-Client-Secret" = "CF_ACCESS_CLIENT_SECRET" }
 
 [mcp_servers.grafana]
 url = "http://127.0.0.1:8768/mcp"
@@ -66,19 +68,10 @@ url = "https://mcp.opentofu.org/mcp"
 enabled = true
 startup_timeout_sec = 30
 
-[mcp_servers.kubernetes]
-url = "http://127.0.0.1:8772/mcp"
-enabled = true
-startup_timeout_sec = 30
-
 [mcp_servers.opencode-docs]
 url = "http://127.0.0.1:8773/mcp"
 enabled = true
 startup_timeout_sec = 30
-
-[mcp_servers.context7]
-url = "http://127.0.0.1:8781/mcp"
-enabled = true
 
 [mcp_servers.argocd-staging-eks]
 url = "http://127.0.0.1:8774/mcp"
