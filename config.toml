@@ -6,11 +6,11 @@ command = "context-mode"
 args = []
 enabled = true
 
-[mcp_servers.parallel-search]
-url = "https://mcp-parallel-search.makeitwork.cloud/mcp"
+[mcp_servers.makeitwork-parallel-search]
+url = "https://mcp-makeitwork-parallel-search.makeitwork.cloud/mcp"
 enabled = true
 startup_timeout_sec = 30
-env_http_headers = { "CF-Access-Client-Id" = "CF_ACCESS_CLIENT_ID", "CF-Access-Client-Secret" = "CF_ACCESS_CLIENT_SECRET" }
+env_http_headers = { "CF-Access-Client-Id" = "CF_ACCESS_CLIENT_ID", "CF-Access-Client-Secret" = "CF_ACCESS_CLIENT_SECRET", "User-Agent" = "makeitwork-mcp-client/1.0" }
 
 [mcp_servers.linear]
 command = "bunx"
@@ -34,8 +34,8 @@ enabled = true
 startup_timeout_sec = 100
 tool_timeout_sec = 120
 
-[mcp_servers.aws-docs]
-url = "https://mcp-aws-docs.makeitwork.cloud/mcp"
+[mcp_servers.makeitwork-aws-docs]
+url = "https://mcp-makeitwork-aws-docs.makeitwork.cloud/mcp"
 enabled = true
 startup_timeout_sec = 30
 env_http_headers = { "CF-Access-Client-Id" = "CF_ACCESS_CLIENT_ID", "CF-Access-Client-Secret" = "CF_ACCESS_CLIENT_SECRET" }
@@ -54,8 +54,8 @@ enabled = true
 url = "http://127.0.0.1:8770/mcp"
 enabled = true
 
-[mcp_servers.terraform-docs]
-url = "https://mcp-terraform-docs.makeitwork.cloud/mcp"
+[mcp_servers.makeitwork-terraform-docs]
+url = "https://mcp-makeitwork-terraform-docs.makeitwork.cloud/mcp"
 enabled = true
 startup_timeout_sec = 30
 env_http_headers = { "CF-Access-Client-Id" = "CF_ACCESS_CLIENT_ID", "CF-Access-Client-Secret" = "CF_ACCESS_CLIENT_SECRET" }
@@ -82,39 +82,39 @@ enabled = true
 startup_timeout_sec = 30
 tool_timeout_sec = 120
 
-[mcp_servers.argocd-makeitwork]
-url = "https://mcp-argocd-makeitwork.makeitwork.cloud/mcp"
+[mcp_servers.makeitwork-argocd]
+url = "https://mcp-makeitwork-argocd.makeitwork.cloud/mcp"
 enabled = true
 startup_timeout_sec = 30
 tool_timeout_sec = 120
 env_http_headers = { "CF-Access-Client-Id" = "CF_ACCESS_CLIENT_ID", "CF-Access-Client-Secret" = "CF_ACCESS_CLIENT_SECRET" }
 
-[mcp_servers.apify]
-url = "https://mcp-apify.makeitwork.cloud/mcp"
+[mcp_servers.makeitwork-apify]
+url = "https://mcp-makeitwork-apify.makeitwork.cloud/mcp"
 enabled = true
 startup_timeout_sec = 30
 env_http_headers = { "CF-Access-Client-Id" = "CF_ACCESS_CLIENT_ID", "CF-Access-Client-Secret" = "CF_ACCESS_CLIENT_SECRET" }
 
-[mcp_servers.context7]
-url = "https://mcp-context7.makeitwork.cloud/mcp"
+[mcp_servers.makeitwork-context7]
+url = "https://mcp-makeitwork-context7.makeitwork.cloud/mcp"
 enabled = true
 startup_timeout_sec = 30
 env_http_headers = { "CF-Access-Client-Id" = "CF_ACCESS_CLIENT_ID", "CF-Access-Client-Secret" = "CF_ACCESS_CLIENT_SECRET" }
 
-[mcp_servers.github]
-url = "https://mcp-github.makeitwork.cloud/mcp"
+[mcp_servers.makeitwork-github]
+url = "https://mcp-makeitwork-github.makeitwork.cloud/mcp"
 enabled = true
 startup_timeout_sec = 30
 env_http_headers = { "CF-Access-Client-Id" = "CF_ACCESS_CLIENT_ID", "CF-Access-Client-Secret" = "CF_ACCESS_CLIENT_SECRET" }
 
-[mcp_servers.kubernetes]
-url = "https://mcp-kubernetes.makeitwork.cloud/mcp"
+[mcp_servers.makeitwork-kubernetes]
+url = "https://mcp-makeitwork-kubernetes.makeitwork.cloud/mcp"
 enabled = true
 startup_timeout_sec = 30
 env_http_headers = { "CF-Access-Client-Id" = "CF_ACCESS_CLIENT_ID", "CF-Access-Client-Secret" = "CF_ACCESS_CLIENT_SECRET" }
 
-[mcp_servers.grafana-makeitwork]
-url = "https://mcp-grafana-makeitwork.makeitwork.cloud/mcp"
+[mcp_servers.makeitwork-grafana]
+url = "https://mcp-makeitwork-grafana.makeitwork.cloud/mcp"
 enabled = true
 startup_timeout_sec = 30
 env_http_headers = { "CF-Access-Client-Id" = "CF_ACCESS_CLIENT_ID", "CF-Access-Client-Secret" = "CF_ACCESS_CLIENT_SECRET" }
