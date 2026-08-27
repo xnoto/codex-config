@@ -40,6 +40,12 @@ enabled = true
 startup_timeout_sec = 30
 env_http_headers = { "CF-Access-Client-Id" = "CF_ACCESS_CLIENT_ID", "CF-Access-Client-Secret" = "CF_ACCESS_CLIENT_SECRET" }
 
+[mcp_servers.makeitwork-aws]
+url = "https://mcp.makeitwork.cloud/mcp"
+enabled = true
+startup_timeout_sec = 30
+env_http_headers = { "CF-Access-Client-Id" = "CF_ACCESS_CLIENT_ID", "CF-Access-Client-Secret" = "CF_ACCESS_CLIENT_SECRET" }
+
 [mcp_servers.grafana]
 url = "http://127.0.0.1:8768/mcp"
 enabled = true
