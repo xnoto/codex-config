@@ -52,10 +52,6 @@ enabled = true
 startup_timeout_sec = 30
 tool_timeout_sec = 120
 
-[mcp_servers.agent-hub]
-url = "http://127.0.0.1:8776/mcp"
-enabled = true
-
 [mcp_servers.tmux]
 url = "http://127.0.0.1:8770/mcp"
 enabled = true
