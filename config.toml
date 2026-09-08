@@ -67,11 +67,6 @@ url = "https://mcp.opentofu.org/mcp"
 enabled = true
 startup_timeout_sec = 30
 
-[mcp_servers.opencode-docs]
-url = "http://127.0.0.1:8773/mcp"
-enabled = true
-startup_timeout_sec = 30
-
 [mcp_servers.argocd-staging-eks]
 url = "http://127.0.0.1:8774/mcp"
 enabled = true
