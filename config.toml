@@ -13,14 +13,14 @@ startup_timeout_sec = 30
 env_http_headers = { "CF-Access-Client-Id" = "CF_ACCESS_CLIENT_ID", "CF-Access-Client-Secret" = "CF_ACCESS_CLIENT_SECRET", "User-Agent" = "makeitwork-mcp-client/1.0" }
 
 [mcp_servers.linear]
-command = "bunx"
-args = ["--bun", "mcp-remote", "https://mcp.linear.app/mcp"]
+url = "https://mcp.linear.app/mcp"
 enabled = true
+startup_timeout_sec = 30
 
 [mcp_servers.notion]
-command = "bunx"
-args = ["--bun", "mcp-remote", "https://mcp.notion.com/mcp", "--transport", "http-only"]
+url = "https://mcp.notion.com/mcp"
 enabled = true
+startup_timeout_sec = 30
 
 [mcp_servers.aws-staging]
 url = "http://127.0.0.1:8765/mcp"
