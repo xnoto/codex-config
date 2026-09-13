@@ -28,8 +28,86 @@ enabled = true
 startup_timeout_sec = 100
 tool_timeout_sec = 120
 
-[mcp_servers.makeitwork]
-url = "https://mcp.makeitwork.cloud/mcp"
+[mcp_servers.makeitwork-apify]
+url = "https://mcp-apify.makeitwork.cloud/mcp"
+enabled = true
+startup_timeout_sec = 30
+env_http_headers = { "CF-Access-Client-Id" = "CF_ACCESS_CLIENT_ID", "CF-Access-Client-Secret" = "CF_ACCESS_CLIENT_SECRET" }
+
+[mcp_servers.makeitwork-argocd]
+url = "https://mcp-argocd.makeitwork.cloud/mcp"
+enabled = true
+startup_timeout_sec = 30
+env_http_headers = { "CF-Access-Client-Id" = "CF_ACCESS_CLIENT_ID", "CF-Access-Client-Secret" = "CF_ACCESS_CLIENT_SECRET" }
+
+[mcp_servers.makeitwork-aws]
+url = "https://mcp-aws.makeitwork.cloud/mcp"
+enabled = true
+startup_timeout_sec = 30
+env_http_headers = { "CF-Access-Client-Id" = "CF_ACCESS_CLIENT_ID", "CF-Access-Client-Secret" = "CF_ACCESS_CLIENT_SECRET" }
+
+[mcp_servers.makeitwork-aws-docs]
+url = "https://mcp-aws-docs.makeitwork.cloud/mcp"
+enabled = true
+startup_timeout_sec = 30
+env_http_headers = { "CF-Access-Client-Id" = "CF_ACCESS_CLIENT_ID", "CF-Access-Client-Secret" = "CF_ACCESS_CLIENT_SECRET" }
+
+[mcp_servers.makeitwork-cloudflare]
+url = "https://mcp-cloudflare.makeitwork.cloud/mcp"
+enabled = true
+startup_timeout_sec = 30
+env_http_headers = { "CF-Access-Client-Id" = "CF_ACCESS_CLIENT_ID", "CF-Access-Client-Secret" = "CF_ACCESS_CLIENT_SECRET" }
+
+[mcp_servers.makeitwork-context7]
+url = "https://mcp-context7.makeitwork.cloud/mcp"
+enabled = true
+startup_timeout_sec = 30
+env_http_headers = { "CF-Access-Client-Id" = "CF_ACCESS_CLIENT_ID", "CF-Access-Client-Secret" = "CF_ACCESS_CLIENT_SECRET" }
+
+[mcp_servers.makeitwork-gcp]
+url = "https://mcp-gcp.makeitwork.cloud/mcp"
+enabled = true
+startup_timeout_sec = 30
+env_http_headers = { "CF-Access-Client-Id" = "CF_ACCESS_CLIENT_ID", "CF-Access-Client-Secret" = "CF_ACCESS_CLIENT_SECRET" }
+
+[mcp_servers.makeitwork-grafana]
+url = "https://mcp-grafana.makeitwork.cloud/mcp"
+enabled = true
+startup_timeout_sec = 30
+env_http_headers = { "CF-Access-Client-Id" = "CF_ACCESS_CLIENT_ID", "CF-Access-Client-Secret" = "CF_ACCESS_CLIENT_SECRET" }
+
+[mcp_servers.makeitwork-kubernetes]
+url = "https://mcp-kubernetes.makeitwork.cloud/mcp"
+enabled = true
+startup_timeout_sec = 30
+env_http_headers = { "CF-Access-Client-Id" = "CF_ACCESS_CLIENT_ID", "CF-Access-Client-Secret" = "CF_ACCESS_CLIENT_SECRET" }
+
+[mcp_servers.makeitwork-parallel-search]
+url = "https://mcp-parallel-search.makeitwork.cloud/mcp"
+enabled = true
+startup_timeout_sec = 30
+env_http_headers = { "CF-Access-Client-Id" = "CF_ACCESS_CLIENT_ID", "CF-Access-Client-Secret" = "CF_ACCESS_CLIENT_SECRET" }
+
+[mcp_servers.makeitwork-playwright]
+url = "https://mcp-playwright.makeitwork.cloud/mcp"
+enabled = true
+startup_timeout_sec = 30
+env_http_headers = { "CF-Access-Client-Id" = "CF_ACCESS_CLIENT_ID", "CF-Access-Client-Secret" = "CF_ACCESS_CLIENT_SECRET" }
+
+[mcp_servers.makeitwork-slidespeak]
+url = "https://mcp-slidespeak.makeitwork.cloud/mcp"
+enabled = true
+startup_timeout_sec = 30
+env_http_headers = { "CF-Access-Client-Id" = "CF_ACCESS_CLIENT_ID", "CF-Access-Client-Secret" = "CF_ACCESS_CLIENT_SECRET" }
+
+[mcp_servers.makeitwork-terraform-docs]
+url = "https://mcp-terraform-docs.makeitwork.cloud/mcp"
+enabled = true
+startup_timeout_sec = 30
+env_http_headers = { "CF-Access-Client-Id" = "CF_ACCESS_CLIENT_ID", "CF-Access-Client-Secret" = "CF_ACCESS_CLIENT_SECRET" }
+
+[mcp_servers.makeitwork-twilio-docs]
+url = "https://mcp-twilio-docs.makeitwork.cloud/mcp"
 enabled = true
 startup_timeout_sec = 30
 env_http_headers = { "CF-Access-Client-Id" = "CF_ACCESS_CLIENT_ID", "CF-Access-Client-Secret" = "CF_ACCESS_CLIENT_SECRET" }
@@ -66,4 +144,3 @@ url = "http://127.0.0.1:8775/mcp"
 enabled = true
 startup_timeout_sec = 30
 tool_timeout_sec = 120
-
