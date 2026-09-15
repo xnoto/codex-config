@@ -144,3 +144,21 @@ url = "http://127.0.0.1:8775/mcp"
 enabled = true
 startup_timeout_sec = 30
 tool_timeout_sec = 120
+
+# Project trust. Codex writes `projects.<path>.trust_level` into this file at
+# runtime; it has no separate trust store (openai/codex#15433, #14601 track
+# that request). Because this repository is deployed as a chezmoi `git-repo`
+# external, every runtime write leaves the checkout dirty and puts the live
+# config in the path of the next `git pull`. Seeding the entries Codex would
+# otherwise write keeps the deployed tree clean.
+#
+# The $HOME entry is the documented workaround for openai/codex#9932: when the
+# working directory resolves under $HOME, Codex treats ~/.codex as both the
+# user config and an untrusted *project* config and disables it. Both platform
+# paths are listed because externals are not templated; the non-local one is an
+# inert entry for a path that does not exist.
+[projects."/Users/swelch"]
+trust_level = "trusted"
+
+[projects."/home/swelch"]
+trust_level = "trusted"
