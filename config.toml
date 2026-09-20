@@ -52,7 +52,7 @@ enabled = true
 startup_timeout_sec = 30
 env_http_headers = { "CF-Access-Client-Id" = "CF_ACCESS_CLIENT_ID", "CF-Access-Client-Secret" = "CF_ACCESS_CLIENT_SECRET" }
 
-[mcp_servers.cloudflare]
+[mcp_servers.makeitwork-cloudflare]
 url = "https://mcp-cloudflare.makeitwork.cloud/mcp"
 enabled = true
 startup_timeout_sec = 30
@@ -64,7 +64,7 @@ enabled = true
 startup_timeout_sec = 30
 env_http_headers = { "CF-Access-Client-Id" = "CF_ACCESS_CLIENT_ID", "CF-Access-Client-Secret" = "CF_ACCESS_CLIENT_SECRET" }
 
-[mcp_servers.gcp]
+[mcp_servers.makeitwork-gcp]
 url = "https://mcp-gcp.makeitwork.cloud/mcp"
 enabled = true
 startup_timeout_sec = 30
