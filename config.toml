@@ -127,6 +127,18 @@ url = "https://mcp.opentofu.org/mcp"
 enabled = true
 startup_timeout_sec = 30
 
+[mcp_servers.kubernetes-staging-eks]
+url = "http://127.0.0.1:8772/mcp"
+enabled = true
+startup_timeout_sec = 30
+tool_timeout_sec = 120
+
+[mcp_servers.kubernetes-prod-eks]
+url = "http://127.0.0.1:8773/mcp"
+enabled = true
+startup_timeout_sec = 30
+tool_timeout_sec = 120
+
 [mcp_servers.argocd-staging-eks]
 url = "http://127.0.0.1:8774/mcp"
 enabled = true
