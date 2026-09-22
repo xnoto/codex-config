@@ -76,7 +76,7 @@ enabled = true
 startup_timeout_sec = 30
 env_http_headers = { "CF-Access-Client-Id" = "CF_ACCESS_CLIENT_ID", "CF-Access-Client-Secret" = "CF_ACCESS_CLIENT_SECRET" }
 
-[mcp_servers.kubernetes]
+[mcp_servers.makeitwork-kubernetes]
 url = "https://mcp-kubernetes.makeitwork.cloud/mcp"
 enabled = true
 startup_timeout_sec = 30
