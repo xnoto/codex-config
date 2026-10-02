@@ -28,6 +28,12 @@ enabled = true
 startup_timeout_sec = 100
 tool_timeout_sec = 120
 
+[mcp_servers.github]
+url = "http://127.0.0.1:8767/mcp"
+enabled = true
+startup_timeout_sec = 30
+tool_timeout_sec = 120
+
 [mcp_servers.apify]
 url = "https://mcp-apify.makeitwork.cloud/mcp"
 enabled = true
